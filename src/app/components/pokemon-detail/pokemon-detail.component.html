@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ pokemon.name | titlecase }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" class="ion-text-center">
+        <img [src]="pokemon.sprites.front_default" style="min-length: 300px; min-height:300px" alt="Imagem do Pokémon">
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-list>
+          <ion-item>
+            Tipo: {{ pokemon.types[0]?.type?.name }}
+          </ion-item>
+          <ion-item *ngFor="let stat of pokemon.stats">
+            {{ stat.stat.name | titlecase }}: {{ stat.base_stat }}
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

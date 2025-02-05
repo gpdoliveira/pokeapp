@@ -1,0 +1,17 @@
+<ion-content [fullscreen]="true">
+  <ion-card> 
+    <img src="../../assets/icon/pokemon.png">
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-row>
+        <ion-col *ngFor="let pokemon of pokemonDataList" size="4">
+          <img (click)="openPokemonDetail(pokemon)" [src]="pokemon.sprites.front_default" style="border: 2px solid crimson">
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>
