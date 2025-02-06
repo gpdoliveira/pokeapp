@@ -14,9 +14,11 @@ import { PokemonDetailComponent } from './components/pokemon-detail/pokemon-deta
 
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
+import { IonicStorageModule } from '@ionic/storage-angular';
+
 @NgModule({
   declarations: [AppComponent, PokemonDetailComponent],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, IonicStorageModule.forRoot()],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     provideHttpClient(withInterceptorsFromDi()),

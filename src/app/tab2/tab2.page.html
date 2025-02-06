@@ -1,20 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <img src="../../assets/icon/wish.png">
 
+  <ion-card >
+    <img src="../../assets/icon/wish.png" style="padding: 30px">
   </ion-card>
+  <ion-card style="border: 5px solid #3c5aa6;">
+    <!--<ion-button (click)="clearStorage()"></ion-button>-->
+    <img src="../../assets/icon/pokemons.jpg" style="border: 5px solid #fff">
 
-  <ion-card  style="border: 5px solid pink">
-    
-    <img src="../../assets/icon/pokemons.jpg" style="border: 5px solid white">
-    <ion-row style="border: 5px solid blue">
+    <ion-row (click)="getPokemon()">
       <ion-col size="8">
-        <img src="../../assets/icon/capturar.png">
+        <img src="../../assets/icon/capturar.png" style="margin-top: 10px" >
       </ion-col>
+
       <ion-col size="4">
-        <img src="../../assets/icon/pokebola.png">
+        <img  src="../../assets/icon/pokebola.png" >
       </ion-col>
     </ion-row>
- 
+
   </ion-card>
+
 </ion-content>
