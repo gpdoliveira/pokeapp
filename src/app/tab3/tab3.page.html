@@ -7,12 +7,12 @@
     <ion-card>
       <ion-card-content>
         <ion-list>
-          <ion-item style="margin: 20px">
+          <ion-item (click)="openPokemonDetail(pokemon)" *ngFor="let pokemon of pokemonList" style="margin: 20px">
             <ion-thumbnail slot="start">
-              <img src="https://ionicframework.com/docs/img/demos/thumbnail.svg" style="border: 2px solid yellow; background-color: aliceblue;">
+              <img [src]="pokemon.sprites.front_default" style="border: 2px solid yellow; background-color: aliceblue;">
             </ion-thumbnail>
             <ion-label>
-              <h1>Nome do pókemon</h1>
+              <h1> {{ pokemon.name }} </h1>
             </ion-label>
           </ion-item>
         </ion-list>

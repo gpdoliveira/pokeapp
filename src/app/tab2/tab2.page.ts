@@ -13,6 +13,8 @@ import { StorageService } from '../services/storage.service';
 })
 export class Tab2Page {
 
+  pokeball: boolean =  false
+
   constructor(private pokeapiService: PokeapiService, private modalController: ModalController, private storageService: StorageService) {}
 
   async openPokemonDetail(pokemon: any){
@@ -26,14 +28,17 @@ export class Tab2Page {
   async getPokemon() {
     const id = this.pokeapiService.getRandomId(1, 1010);  // Gera um ID aleatório
     this.pokeapiService.getPokemon(id).subscribe((data) => {
-    //  this.pokemonData = data;
-      this.addPokemon();
+      this.addPokemon(data);
       this.openPokemonDetail(data);
     });
   }
 
-  async addPokemon() {
-    //await this.storageService.addPokemon(this.pokemonData.id);
+  async addPokemon(pokemonData: any) {
+    await this.storageService.addPokemon(pokemonData.id);
+  }
+
+  async ionViewWillEnter(){
+    this.pokeball = await this.storageService.getPokeball();
   }
 
 }

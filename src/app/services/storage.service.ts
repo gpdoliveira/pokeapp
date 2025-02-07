@@ -13,6 +13,7 @@ interface PokemonData{
 export class StorageService {
 
   private _storage:  Storage | null = null;
+  private pokeball:  boolean = true;
 
   constructor(private storage: Storage) {
     this.init();
@@ -34,5 +35,18 @@ export class StorageService {
 
   async getAllPokemon(): Promise<PokemonData[]> {
     return (await this._storage?.get('pokemonList')) || [];
+  }
+
+  async getPokeball(): Promise<boolean>{
+    await this.checkPokeball();
+    return this.pokeball;
+  }
+
+  private async checkPokeball(){
+    const storedPokemonList = await this.getAllPokemon();
+    const todayDate = new Date().toISOString().split('T')[0];
+    this.pokeball = storedPokemonList.some(
+      (pokemon: { id: number;  date: string}) => pokemon.date === todayDate
+    );
   }
 }
