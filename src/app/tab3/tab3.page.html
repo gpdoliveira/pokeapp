@@ -1,21 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
-    <ion-card>
-      <img src="../../assets/icon/pokedex.png">
-    </ion-card>
 
+  <ion-card >
+    <img src="../../assets/icon/pokedex.png" style="padding: 30px">
+  </ion-card>
 
-    <ion-card>
-      <ion-card-content>
-        <ion-list>
-          <ion-item (click)="openPokemonDetail(pokemon)" *ngFor="let pokemon of pokemonList" style="margin: 20px">
-            <ion-thumbnail slot="start">
-              <img [src]="pokemon.sprites.front_default" style="border: 2px solid yellow; background-color: aliceblue;">
-            </ion-thumbnail>
-            <ion-label>
-              <h1> {{ pokemon.name }} </h1>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-card-content>
-    </ion-card>
+  <ion-card>
+    <ion-card-content>
+      <ion-list>
+        <ion-item (click)="openPokemonDetail(pokemon)" *ngFor="let pokemon of pokemonList" style="margin: 20px">
+          <ion-thumbnail slot="start">
+            <img alt="Silhouette of mountains" [src]="pokemon.sprites.front_default" style="border: 2px solid #3c5aa6; background-color:white"/>
+          </ion-thumbnail>
+          <ion-label><h1>{{pokemon.name}}</h1></ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
 </ion-content>

@@ -1,10 +1,15 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content [fullscreen]="true">
 
   <ion-card >
     <img src="../../assets/icon/wish.png" style="padding: 30px">
   </ion-card>
   <ion-card style="border: 5px solid #3c5aa6;">
-    <!--<ion-button (click)="clearStorage()"></ion-button>-->
+
     <img src="../../assets/icon/pokemons.jpg" style="border: 5px solid #fff">
 
     <ion-row *ngIf="!pokeball" (click)="getPokemon()">
@@ -17,16 +22,15 @@
       </ion-col>
     </ion-row>
 
-    <ion-row *ngIf="pokeball" style="margin-left:20px;">
+    <ion-row *ngIf="pokeball" style="margin-left:20px">
       <ion-col size="8">
-        <ion-button color="danger"[disabled]="true">Sem pokebolas disponíveis</ion-button>
+        <ion-button color="danger" [disabled]="true">Sem pokebolas disponíveis</ion-button>
       </ion-col>
       <ion-col size="4">
-        <img src="../../assets/icon/pokebola.png" style="max-height: 60px;">
+        <img  src="../../assets/icon/pokebola.png" style="max-height:60px">
       </ion-col>
+
     </ion-row>
-
-
 
   </ion-card>
 
